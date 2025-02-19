@@ -23,5 +23,7 @@ It is a population-based search method that evolves solutions over multiple gene
 4. Mutation: Small random changes are introduced to maintain diversity and prevent premature convergence.
 5. Evaluation: The fitness of new individuals is assessed.
 6. Repeat: This cycle continues until an optimal or satisfactory solution is found.
-
-![Genetic_Algorithm_Parallelization](GA.jpg)
+   
+<p align="center">
+<img width="33%" src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/blob/main/GA.jpg">
+</p>
