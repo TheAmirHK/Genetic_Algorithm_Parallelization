@@ -28,4 +28,4 @@ It is a population-based search method that evolves solutions over multiple gene
 <img width="33%" src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/blob/main/GA.jpg">
 </p>
 
-![Genetic_Algorithm_Parallelization](GA_result.png) ![Genetic_Algorithm_Parallelization](PGA_result.png) 
+![Genetic_Algorithm_Parallelization](GA_result.png)![Genetic_Algorithm_Parallelization](PGA_result.png) 
