@@ -10,7 +10,7 @@ Though Darwin didn’t use mathematical models, his ideas laid the foundation fo
 He developed a mathematical framework to apply natural selection to optimization problems. Following that year, **Kenneth De Jong**, Hollands student tested GA performance on real-world problems.
 - In 1990s, **David Goldberg**, again another student of Holland, used GAs for optimizing pipeline networks. Afterward, he published "Genetic Algorithms in Search, Optimization & Machine Learning" (1989), popularizing GAs in engineering and AI.
 - From 2000s till today GA used in robotics, game AI, logistics, finance, Neuroevolution, Quantum GAs and yet no stop to that.
- ## How GA works and how to paralleize it ?
+ ### How GA works and how to parallelize it ?
 The foundation and understanding of a genetic algorithm are not that complicated. At its core, it’s just a trial-and-error search process inspired by evolution.
 It is a population-based search method that evolves solutions over multiple generations using mechanisms inspired by biological evolution:
 1. Initialization: A population of candidate solutions (chromosomes) is randomly generated.
@@ -19,13 +19,20 @@ It is a population-based search method that evolves solutions over multiple gene
 4. Mutation: Small random changes are introduced to maintain diversity and prevent premature convergence.
 5. Evaluation: The fitness of new individuals is assessed.
 6. Repeat: This cycle continues until an optimal or satisfactory solution is found.
-   
+
+A most-common method in parllelization is called the "Island Model", also known as the Distributed Genetic Algorithm. This method was introduced by Martin, W. N. (1997) and it enhances genetic algorithms (GAs) by dividing the population into multiple subpopulations, referred to as "islands." Each island evolves independently, applying selection, crossover, and mutation operators within its local population. Periodically, a migration process occurs where selected individuals are exchanged between islands, promoting genetic diversity and aiding in the exploration of the solution space. Aside from this method, several others can also be found that have their own ups and downs, methods such as Master-Slave Model or Fine-Grained Model and also another method so-called SIMD (Single Instruction, Multiple Data) approach. knwoing them is just fun !
+
 <p align="center">
 <img width="33%" src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/blob/main/GA.jpg">
 <img width="33%" src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/blob/main/PGA.jpg">
 </p>
 
-<img src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/raw/main/GA_result.png" alt="Alt Text" width="400" height="auto"><img src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/raw/main/PGA_result.png" alt="Alt Text" width="400" height="auto">
+<p align="center">
+<img src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/raw/main/GA_result.png" alt="GA" width="400" height="auto">
+<img src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/raw/main/PGA_result.png" alt="PGA" width="400" height="auto">
+</p>
+
+Martin, W. N. (1997). Island (migration) models: evolutionary algorithms based on punctuated equilibria. Handbook of evolutionary computation.
 
 # NSGA-II: Non-dominated Sorting Genetic Algorithm II
 NSGA-II extends the concept of genetic algorithms (GAs) to handle multiple conflicting objectives effectively. Instead of a single optimal solution, NSGA-II finds a Pareto front—a set of solutions where no solution is strictly better than another across all objectives.
@@ -38,7 +45,7 @@ The Evolution of NSGA-II is also intresting to know and the idea of multi-object
 - 2002: **Kalyanmoy Deb** and colleagues developed NSGA-II, introducing fast non-dominated sorting, crowding distance, and elitism, making it more efficient and widely adopted.
 - 2000s-Present: NSGA-II became a standard in solving engineering, logistics, finance, and AI problems, inspiring other algorithms like NSGA-III for many-objective problems.
 
-## How NSGA-II works ?
+### How NSGA-II works ?
 
 NSGA-II refines the standard genetic algorithm to maintain diversity and find well-distributed Pareto-optimal solutions. It follows these key steps:
 
@@ -49,3 +56,6 @@ NSGA-II refines the standard genetic algorithm to maintain diversity and find we
 5. Crossover & Mutation: Solutions exchange genetic information and undergo small mutations to explore the search space.
 6. Elitism & Replacement: The best solutions from parents and offspring survive to the next generation.
 7. Repeat Until Convergence: The process continues until a stopping criterion (e.g., max generations) is met.
+<p align="center">
+<img width="33%" src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/blob/main/NSGA2.jpg">
+</p>
