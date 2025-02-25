@@ -20,7 +20,7 @@ It is a population-based search method that evolves solutions over multiple gene
 5. Evaluation: The fitness of new individuals is assessed.
 6. Repeat: This cycle continues until an optimal or satisfactory solution is found.
 
-A most-common method in parllelization is called the "Island Model", also known as the Distributed Genetic Algorithm. This method was introduced by Martin, W. N. (1997) and it enhances genetic algorithms (GAs) by dividing the population into multiple subpopulations, referred to as "islands." Each island evolves independently, applying selection, crossover, and mutation operators within its local population. Periodically, a migration process occurs where selected individuals are exchanged between islands, promoting genetic diversity and aiding in the exploration of the solution space. Aside from this method, several others can also be found that have their own ups and downs, methods such as Master-Slave Model or Fine-Grained Model and also another method so-called SIMD (Single Instruction, Multiple Data) approach. knwoing them is just fun !
+***Parallelization method***: A most-common method in parllelization is called the "Island Model", also known as the Distributed Genetic Algorithm. This method was introduced by Martin, W. N. (1997) and it enhances genetic algorithms (GAs) by dividing the population into multiple subpopulations, referred to as "islands." Each island evolves independently, applying selection, crossover, and mutation operators within its local population. Periodically, a migration process occurs where selected individuals are exchanged between islands, promoting genetic diversity and aiding in the exploration of the solution space. Aside from this method, several others can also be found that have their own ups and downs, methods such as Master-Slave Model or Fine-Grained Model and also another method so-called SIMD (Single Instruction, Multiple Data) approach. knwoing them is just fun !
 
 <p align="center">
 <img width="33%" src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/blob/main/GA.jpg">
@@ -59,3 +59,32 @@ NSGA-II refines the standard genetic algorithm to maintain diversity and find we
 <p align="center">
 <img width="33%" src="https://github.com/TheAmirHK/Genetic_Algorithm_Parallelization/blob/main/NSGA2.jpg">
 </p>
+
+# NSGA-III: Non-dominated Sorting Genetic Algorithm III
+NSGA-III is an extension of the NSGA-II algorithm designed specifically for solving many-objective optimization problems. It was introduced by Deb and Jain in 2013 to improve the performance of evolutionary multi-objective optimization algorithms in handling high-dimensional objective spaces.
+
+### How NSGA-III works ?
+ 
+1. Initialization: Generate a random population and define reference points in the objective space.
+2. Non-Dominated Sorting: Rank solutions into Pareto fronts.<br>
+3. Selection (different from NSGA-II!):<br>- If a front fits in the population, then Add all solutions.<br>- If not, then use Reference-Point Niching to select solutions closest to underrepresented reference points.<br>
+4. Crossover & Mutation: Apply Simulated Binary Crossover (SBX) and Polynomial Mutation.
+5. Repeat Until Convergence.
+
+
+
+# Key differences between GA, NSGA-II, and NSGA-III 
+| Feature                   | Genetic Algorithm (GA)                                  | NSGA-II                                        | NSGA-III                                      |
+|---------------------------|-------------------------------------------------------|------------------------------------------------|----------------------------------------------|
+| **Type**                     |  Single Evolutionary Algorithm                        | Multi-Objective Evolutionary Algorithm | Multi-Objective Evolutionary Algorithm  |
+| **Objective Handling**       | Typically single-objective                           | Handles multiple objectives effectively       | Designed for many-objective optimization |
+| **Selection Mechanism**      | Roulette wheel, tournament, or rank-based selection  | Non-dominated sorting + crowding distance     | Non-dominated sorting + reference points    |
+| **Diversity Preservation**   | Mutation and crossover help maintain diversity        | Crowding distance ensures diversity           | Reference points ensure even distribution   |
+| **Computational Complexity** | O(M ⋅ N ⋅ log N) (M: objectives, N: population size) | O(M ⋅ N²) (improved from NSGA)               | O(M ⋅ N²) (similar to NSGA-II but different sorting approach) |
+| **Scalability to Many Objectives** | Poor without modifications                   | Works well for up to 3 objectives            | Scales well for 4+ objectives               |
+| **Sorting Mechanism**        | Not inherently based on Pareto ranking               | Fast non-dominated sorting                    | Reference point-based non-dominated sorting |
+| **Strengths**             | Simple, general-purpose, easy to implement            | Efficient for a small number of objectives    | Handles many-objective problems better      |
+| **Weaknesses**            | Struggles with multi-objective trade-offs             | Struggles with more than 3 objectives        | Requires predefined reference points        |
+
+
+
